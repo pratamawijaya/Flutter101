@@ -2,6 +2,18 @@
 
 A new Flutter project.
 
+## Create flutter project from terminal
+```
+flutter create myapp
+cd myapp
+```
+
+### Run apps from terminal
+```
+flutter devices
+flutter run
+```
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
