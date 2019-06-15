@@ -1,5 +1,7 @@
 # flutter_02_building_layout
 
+![](images/ss.png)
+
 A new Flutter project.
 
 ## Getting Started
