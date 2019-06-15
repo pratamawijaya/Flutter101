@@ -47,7 +47,7 @@ class _RandomWordsState extends State<RandomWords> {
       new MaterialPageRoute<void>(
         builder: (BuildContext context) {
           final Iterable<ListTile> tiles = _saved.map(
-            (WordPair pair) {
+                (WordPair pair) {
               return new ListTile(
                 title: new Text(
                   pair.asPascalCase,
