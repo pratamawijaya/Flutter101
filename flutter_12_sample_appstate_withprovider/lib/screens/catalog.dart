@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_12_sample_appstate_withprovider/constant.dart';
 import 'package:flutter_12_sample_appstate_withprovider/models/cart.dart';
 import 'package:provider/provider.dart';
 
@@ -76,12 +77,12 @@ class _MyAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      title: Text('Catalog', style: Theme.of(context).textTheme.display1),
+      title: Text('Catalog', style: Theme.of(context).textTheme.title),
       floating: true,
       actions: <Widget>[
         IconButton(
             icon: Icon(Icons.shopping_cart),
-            onPressed: () => Navigator.pushNamed(context, "/cart"))
+            onPressed: () => Navigator.pushNamed(context, "$cartRoute"))
       ],
     );
   }

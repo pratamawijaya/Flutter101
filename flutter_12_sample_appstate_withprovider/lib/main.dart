@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_12_sample_appstate_withprovider/constant.dart';
 import 'package:flutter_12_sample_appstate_withprovider/models/cart.dart';
 import 'package:flutter_12_sample_appstate_withprovider/screens/cart.dart';
 import 'package:flutter_12_sample_appstate_withprovider/screens/catalog.dart';
@@ -18,8 +19,8 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => LoginScreen(),
-          '/catalog': (context) => CatalogScreen(),
-          '/cart': (context) => CartScreen()
+          '$catalogRoute': (context) => CatalogScreen(),
+          '$cartRoute': (context) => CartScreen()
         },
       ),
     );

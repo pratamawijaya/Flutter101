@@ -10,7 +10,7 @@ class CartScreen extends StatelessWidget {
         title: Text('Cart', style: Theme
             .of(context)
             .textTheme
-            .display2,),
+            .title,),
       ),
       body: Container(
         color: Colors.yellow,
@@ -72,7 +72,7 @@ class _CartTotal extends StatelessWidget {
             FlatButton(
               onPressed: () {
                 Scaffold.of(context).showSnackBar(
-                    SnackBar(content: Text('Buying not support'),))
+                    SnackBar(content: Text('Buying not support')));
               },
               color: Colors.white,
               child: Text('Buy'),
