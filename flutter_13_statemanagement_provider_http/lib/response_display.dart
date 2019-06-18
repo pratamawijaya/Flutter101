@@ -9,22 +9,25 @@ class ResponseDisplay extends StatelessWidget {
     final appState = Provider.of<AppState>(context);
 
     return Container(
-        padding: const EdgeInsets.all(16.0),
-        child: appState.isFetch
-            ? CircularProgressIndicator()
-            : appState.getResponseJson() != null
-                ? ListView.builder(
-                    itemCount: appState.getResponseJson().length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              appState.getResponseJson()[index]['avatar']),
-                        ),
-                        title: Text(
-                            appState.getResponseJson()[index]['first_name']),
-                      );
-                    })
-                : Text('Press button above'));
+      child: appState.isFetch
+          ? CircularProgressIndicator()
+          : appState.getResponseJson() != null
+              ? ListView.builder(
+                  primary: false,
+                  shrinkWrap: true,
+                  itemCount: appState.getResponseJson().length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            appState.getResponseJson()[index]['avatar']),
+                      ),
+                      title: Text(
+                        appState.getResponseJson()[index]["first_name"],
+                      ),
+                    );
+                  })
+              : Text("Press button"),
+    );
   }
 }
