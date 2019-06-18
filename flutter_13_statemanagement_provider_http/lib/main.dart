@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_statemanagement_provider_http/app_state.dart';
+import 'package:flutter_statemanagement_provider_http/response_display.dart';
 import 'package:flutter_statemanagement_provider_http/text_display.dart';
 import 'package:flutter_statemanagement_provider_http/text_edit.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +32,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final appState = Provider.of<AppState>(context);
+
     return Scaffold(
       appBar: AppBar(),
       body: Container(
@@ -41,6 +44,11 @@ class _HomeScreenState extends State<HomeScreen> {
             children: <Widget>[
               TextDisplay(),
               TextEditWidget(),
+              RaisedButton(
+                onPressed: () => appState.fetchData(),
+                child: Text('Fetch data from network'),
+              ),
+              ResponseDisplay()
             ],
           ),
         ),
