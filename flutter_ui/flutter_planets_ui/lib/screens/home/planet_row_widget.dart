@@ -1,6 +1,5 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter_planets_ui/data/model/Planet.dart';
 import 'package:flutter_planets_ui/Themes.dart' as Theme;
 
