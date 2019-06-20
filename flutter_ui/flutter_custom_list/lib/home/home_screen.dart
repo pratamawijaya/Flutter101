@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.only(top: 68.0),
         child: Column(
           children: <Widget>[
+            // ini appbar
             Row(
               children: <Widget>[
                 Padding(
@@ -42,10 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text("Reccomended"),
               ],
             ),
+            // list category
             Container(
               height: 40,
               width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(top: 16.0, left: 16.0),
+              margin:
+                  const EdgeInsets.only(top: 16.0, left: 16.0, bottom: 16.0),
               child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: categories.length,
@@ -71,14 +74,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   }),
             ),
-            ListView.builder(
-                itemCount: categories.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return Container(
+            // list buku
+            Expanded(
+              child: ListView.builder(
+                  itemCount: categories.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return Container(
                       margin: const EdgeInsets.only(bottom: 16.0),
-                      child: BookWidget());
-                }),
+                      child: BookWidget(),
+                    );
+                  }),
+            ),
           ],
         ),
       ),
