@@ -46,4 +46,11 @@ class TextStyles {
       fontFamily: 'Poppins',
       fontWeight: FontWeight.w600,
       fontSize: 24.0);
+
+  static const TextStyle planetDistance = const TextStyle(
+      color: Colors.planetDistance,
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.w200,
+      fontSize: 10.0
+  );
 }

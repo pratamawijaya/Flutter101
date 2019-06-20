@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_planets_ui/screens/home/gradient_appbar_widget.dart';
+import 'package:flutter_planets_ui/screens/home/planet_list.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -21,6 +22,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
     return Column(
       children: <Widget>[
         GradientAppBar("Planets"),
+        PlanetListScreen()
       ],
     );
   }
