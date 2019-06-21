@@ -6,15 +6,15 @@ class Routes {
   static final Router _routes = Router();
 
   static var planetDetailHandler =
-      Handler(handlerFunc: (BuildContext contex, Map<String, dynamic> params) {
-    return PlanetDetailScreen(params["id"]);
+      Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+    return PlanetDetailScreen(params["id"][0]);
   });
 
   static void initRoutes() {
     _routes.define("/detail/:id", handler: planetDetailHandler);
   }
 
-  static void navigateTo(contex, String route, {TransitionType transition}) {
-    _routes.navigateTo(contex, route, transition: transition);
+  static void navigateTo(context, String route, {TransitionType transition}) {
+    _routes.navigateTo(context, route, transition: transition);
   }
 }
