@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:core';
-import 'dart:core' as prefix0;
 
 import 'package:flutter_news_mvvmprovider/domains/news.dart';
 import 'package:http/http.dart' as http;
