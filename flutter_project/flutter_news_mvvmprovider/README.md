@@ -7,6 +7,9 @@ A new Flutter project.
 - mvvm architecture
 - connect to api
 
+## In Progress
+- [ ] show list news from api
+
 ## To Do List
 - [ ] Show Listview news
 - [ ] Integrate Loadmore/infinite scrolling
