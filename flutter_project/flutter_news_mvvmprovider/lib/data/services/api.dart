@@ -8,15 +8,15 @@ import 'package:http/http.dart' as http;
 class Api {
   static const url = "https://api.nytimes.com/svc/";
 
-  var client = new http.Client();
+  var _client = new http.Client();
 
   Future<List<News>> getNews(int page) async {
     var limit = 10;
     var offset = (page - 1) * limit;
 
     var news = List<News>();
-    var path = "news/v3/content/all/all.json";
-    var response = await client.get(uriBuilder(path));
+    var path = "news/v3/content/all/all.json?limit=$limit&offset=$offset";
+    var response = await _client.get(_uriBuilder(path));
 
     var parsed = json.decode(response.body) as String;
 
@@ -25,7 +25,7 @@ class Api {
     return news;
   }
 
-  Uri uriBuilder(String path, [Map<String, String> queryParams]) {
+  Uri _uriBuilder(String path) {
     var queryParameters = {'api-key': '4sUaHSzmzmOJilzfRD6aAlSNLPbz4doN'};
     var uri = Uri.http(url, path, queryParameters);
     return uri;
