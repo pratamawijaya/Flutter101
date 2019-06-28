@@ -2,6 +2,17 @@
 
 A new Flutter project.
 
+## Feature
+- flutter provider
+- mvvm architecture
+- connect to api
+
+## To Do List
+[ ] Show Listview news
+[ ] Integrate Loadmore/infinite scrolling
+[ ] Favorite Page
+[ ] Search article/news
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
