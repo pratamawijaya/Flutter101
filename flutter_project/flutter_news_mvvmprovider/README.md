@@ -8,10 +8,10 @@ A new Flutter project.
 - connect to api
 
 ## To Do List
-[ ] Show Listview news
-[ ] Integrate Loadmore/infinite scrolling
-[ ] Favorite Page
-[ ] Search article/news
+- [ ] Show Listview news
+- [ ] Integrate Loadmore/infinite scrolling
+- [ ] Favorite Page
+- [ ] Search article/news
 
 ## Getting Started
 
