@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_planets_ui/data/PlanetRepository.dart';
 import 'package:flutter_planets_ui/data/model/Planet.dart';
+import 'package:flutter_planets_ui/screens/detail/planet_detail_appbar.dart';
 import 'package:flutter_planets_ui/screens/detail/planet_detail_body.dart';
 
 class PlanetDetailScreen extends StatelessWidget {
@@ -14,6 +15,7 @@ class PlanetDetailScreen extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           PlanetDetailBody(planet),
+          PlanetDetailAppBar(),
         ],
       ),
     );

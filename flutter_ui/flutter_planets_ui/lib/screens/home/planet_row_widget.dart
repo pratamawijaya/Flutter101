@@ -1,7 +1,9 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter_planets_ui/data/model/Planet.dart';
 import 'package:flutter_planets_ui/Themes.dart' as Theme;
+import 'package:flutter_planets_ui/screens/home/separator.dart';
 
 import '../../Routes.dart';
 
@@ -23,6 +25,56 @@ class PlanetRow extends StatelessWidget {
           height: Theme.Dimens.planetHeight,
           width: Theme.Dimens.planetWidth,
         ),
+      ),
+    );
+
+    Widget _planetValue({String value, prefix0.Icon icon}) {
+      return Container(
+        child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              icon,
+              Container(width: 8.0),
+              Text(planet.gravity),
+            ]
+        ),
+      );
+    }
+
+    final planetCardContent = prefix0.Container(
+      margin: prefix0.EdgeInsets.fromLTRB(16.0,16.0,16.0,16.0),
+      constraints: prefix0.BoxConstraints.expand(),
+      child: Column(
+        crossAxisAlignment: prefix0.CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(height: 4.0),
+          Text(planet.name),
+          Container(height: 10.0),
+          Text(planet.location),
+          Separator(),
+          Row(
+            mainAxisAlignment: prefix0.MainAxisAlignment.center,
+            children: <Widget>[
+              prefix0.Expanded(
+                flex: 0,
+                child: _planetValue(
+                  value: planet.distance,
+                  icon: Icon(Icons.location_on)
+                ),
+              ),
+              prefix0.Container(
+                width: 32.0,
+              ),
+              prefix0.Expanded(
+                flex: 0,
+                child: _planetValue(
+                    value: planet.gravity,
+                    icon: Icon(Icons.location_on)
+                ),
+              ),
+            ],
+          )
+        ],
       ),
     );
 
