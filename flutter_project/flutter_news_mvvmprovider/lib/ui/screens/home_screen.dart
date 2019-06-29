@@ -17,9 +17,17 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context, model, child) => Scaffold(
           body: model.isLoading
               ? Center(child: CircularProgressIndicator())
-              : Center(
-                  child: Text("berhasil ambil data"),
-                )),
+              : ListView.builder(
+                  itemCount: model.news.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(
+                        model.news[index].title,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text(model.news[index].section),
+                    );
+                  })),
     );
   }
 }
