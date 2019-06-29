@@ -11,11 +11,11 @@ class HomeViewModel extends BaseModel {
   List<News> news;
 
   Future getNews(int page) async {
-    setBusy(true);
+    setIsLoading(true);
     news = await _repo.getNews(page);
     for (var data in news) {
       print("title ${data.title}");
     }
-    setBusy(false);
+    setIsLoading(false);
   }
 }

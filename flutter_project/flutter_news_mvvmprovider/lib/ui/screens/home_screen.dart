@@ -10,17 +10,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BaseWidget<HomeViewModel>(
       model: HomeViewModel(repo: Provider.of(context)),
       onModelReady: (model) => model.getNews(1),
       builder: (context, model, child) => Scaffold(
-          body: model.busy
+          body: model.isLoading
               ? Center(child: CircularProgressIndicator())
               : Center(
                   child: Text("berhasil ambil data"),
