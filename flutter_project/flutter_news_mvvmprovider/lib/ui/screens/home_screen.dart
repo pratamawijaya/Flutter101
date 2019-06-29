@@ -10,23 +10,21 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BaseWidget<HomeViewModel>(
       model: HomeViewModel(repo: Provider.of(context)),
+      onModelReady: (model) => model.getNews(1),
       builder: (context, model, child) => Scaffold(
-            body: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                FlatButton(
-                  color: Colors.blue,
-                  child: Text("Test button click"),
-                  onPressed: () async {
-                    var result = await model.getNews(1);
-                  },
-                )
-              ],
-            ),
-          ),
+          body: model.busy
+              ? Center(child: CircularProgressIndicator())
+              : Center(
+                  child: Text("berhasil ambil data"),
+                )),
     );
   }
 }
