@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_news_mvvmprovider/data/services/api.dart';
+import 'package:flutter_news_mvvmprovider/data/repository/news_repository.dart';
 import 'package:flutter_news_mvvmprovider/domains/news.dart';
 import 'package:flutter_news_mvvmprovider/ui/viewmodels/base_model.dart';
 
 class HomeViewModel extends BaseModel {
-  Api _api;
+  NewsRepository _repo;
 
-  HomeViewModel({@required Api api}) : _api = api;
+  HomeViewModel({@required NewsRepository repo}) : _repo = repo;
 
   List<News> news;
 
   Future getNews(int page) async {
     setBusy(true);
-    news = await _api.getNews(page);
+    news = await _repo.getNews(page);
     setBusy(false);
   }
 }
