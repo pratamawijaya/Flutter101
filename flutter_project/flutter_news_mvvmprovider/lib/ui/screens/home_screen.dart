@@ -9,15 +9,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  ScrollController _controller =
+      ScrollController(initialScrollOffset: 0.0, keepScrollOffset: true);
+
   @override
   Widget build(BuildContext context) {
     return BaseWidget<HomeViewModel>(
       model: HomeViewModel(repo: Provider.of(context)),
       onModelReady: (model) => model.getNews(1),
       builder: (context, model, child) => Scaffold(
+          appBar: AppBar(
+            title: Text("YK News"),
+          ),
           body: model.isLoading
               ? Center(child: CircularProgressIndicator())
               : ListView.builder(
+                  controller: _controller,
                   itemCount: model.news.length,
                   itemBuilder: (context, index) {
                     return ListTile(

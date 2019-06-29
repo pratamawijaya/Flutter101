@@ -9,6 +9,7 @@ A new Flutter project.
 
 ## In Progress
 - [x] show list news from api
+- [ ] integrate loadmore
 
 ## To Do List
 - [ ] Show Listview news
