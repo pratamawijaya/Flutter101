@@ -8,7 +8,7 @@ A new Flutter project.
 - connect to api
 
 ## In Progress
-- [ ] show list news from api
+- [x] show list news from api
 
 ## To Do List
 - [ ] Show Listview news
