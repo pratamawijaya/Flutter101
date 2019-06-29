@@ -13,6 +13,9 @@ class HomeViewModel extends BaseModel {
   Future getNews(int page) async {
     setBusy(true);
     news = await _repo.getNews(page);
+    for (var data in news) {
+      print("title ${data.title}");
+    }
     setBusy(false);
   }
 }

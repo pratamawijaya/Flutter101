@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:core';
 
+import 'package:flutter_news_mvvmprovider/data/response/get_news_response.dart';
 import 'package:flutter_news_mvvmprovider/data/services/api.dart';
 import 'package:flutter_news_mvvmprovider/domains/news.dart';
 
@@ -13,15 +14,16 @@ class NewsRepository {
     const limit = 10;
     var offset = (page - 1) * limit;
 
-    var news = List<News>();
     var path = _api.getNewsUrl(limit, offset);
     print("path url $path");
 
-    var response = await _api.client.get(_api.uriBuilder(path));
-    var parsed = json.decode(response.body) as String;
+    var response = await _api.client.get(path);
+    var parsed = GetNewsResponse.fromJson(json.decode(response.body));
 
-    print("debug $parsed");
+    print("debug status ${parsed.status}");
+    print("debug copyrigth ${parsed.copyright}");
+    print("debug result size ${parsed.results.length}");
 
-    return news;
+    return parsed.results;
   }
 }
