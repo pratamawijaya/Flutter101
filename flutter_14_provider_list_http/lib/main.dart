@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_14_provider_list_http/data/news_repository.dart';
+import 'package:flutter_14_provider_list_http/viewmodels/list_news_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +14,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: MultiProvider(
+        providers: [
+          Provider<NewsRepository>.value(value: NewsRepository()),
+          ChangeNotifierProvider<ListNewsViewModel>.value(
+              value: ListNewsViewModel(newsRepository: Provider.of(context)))
+        ],
+        child: HomePage(),
+      ),
     );
   }
 }
