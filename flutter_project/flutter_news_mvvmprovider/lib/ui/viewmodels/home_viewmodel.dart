@@ -10,17 +10,22 @@ class HomeViewModel extends BaseModel {
 
   HomeViewModel({@required NewsRepository repo}) : _repo = repo;
 
-  List<News> news;
+  List<News> news = List();
 
   int get getCurrentPage => _currentPage;
 
   Future getNews(int page) async {
     print("get news page $page");
     setIsLoading(true);
-    news = await _repo.getNews(page);
-    for (var data in news) {
+    var fetchedNews = await _repo.getNews(page);
+    news.addAll(fetchedNews);
+
+    for (var data in fetchedNews) {
       print("title ${data.title}");
     }
+
+//    print("news size ${news.length}");
+
     setIsLoading(false);
   }
 
