@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news_mvvmprovider/domains/news.dart';
 import 'package:flutter_news_mvvmprovider/ui/screens/detail_news_screen.dart';
 import 'package:flutter_news_mvvmprovider/ui/screens/home_screen.dart';
 
@@ -9,8 +10,9 @@ class Router {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => HomeScreen());
-      case 'detail':
-        return MaterialPageRoute(builder: (_) => DetailNewsScreen());
+      case '/detail':
+        var news = settings.arguments as News;
+        return MaterialPageRoute(builder: (_) => DetailNewsScreen(news));
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(

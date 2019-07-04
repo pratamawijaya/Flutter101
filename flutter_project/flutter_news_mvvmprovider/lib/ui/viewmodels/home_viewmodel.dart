@@ -13,7 +13,7 @@ class HomeViewModel extends BaseModel {
   List<News> news = [];
   int _currentPage = 0;
 
-  Future getNews() async {
+  void getNews() async {
     print("get news page $_currentPage");
     if (_currentPage >=1) {
       _isLoadmore = true;
