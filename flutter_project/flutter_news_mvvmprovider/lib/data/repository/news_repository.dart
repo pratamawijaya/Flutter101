@@ -20,10 +20,6 @@ class NewsRepository {
     var response = await _api.client.get(path);
     var parsed = GetNewsResponse.fromJson(json.decode(response.body));
 
-    print("debug status ${parsed.status}");
-    print("debug copyrigth ${parsed.copyright}");
-    print("debug result size ${parsed.results.length}");
-
     return parsed.results;
   }
 }

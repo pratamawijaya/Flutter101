@@ -3,7 +3,11 @@ import 'package:flutter_news_mvvmprovider/provider_setup.dart';
 import 'package:flutter_news_mvvmprovider/ui/router.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  Provider.debugCheckInvalidValueType = null;
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override

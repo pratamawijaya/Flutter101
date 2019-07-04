@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_mvvmprovider/ui/base_widget.dart';
 import 'package:flutter_news_mvvmprovider/ui/viewmodels/home_viewmodel.dart';
+import 'package:flutter_news_mvvmprovider/ui/widgets/news_item.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,10 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
       if (isEnd) {
         Future(() {
           print("get next page");
-          // todo: get next page
-//          if (!homeViewModel.isLoading) {
-//            homeViewModel.getNextPage();
-//          }
+          var _homeViewModel = Provider.of<HomeViewModel>(context);
+          if (!_homeViewModel.isLoading) {
+            _homeViewModel.getNews();
+          }
         });
       }
     });
@@ -36,8 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return BaseWidget<HomeViewModel>(
-      model: HomeViewModel(repo: Provider.of(context)),
-      onModelReady: (model) => model.getNews(1),
+      model: Provider.of<HomeViewModel>(context),
+      onModelReady: (model) => model.getNews(),
       builder: (context, model, child) => Scaffold(
           appBar: AppBar(
             centerTitle: false,
@@ -49,13 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   controller: _scrollController,
                   itemCount: model.news.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(
-                        model.news[index].title,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text(model.news[index].section),
-                    );
+                    return NewsItem(model.news[index]);
                   })),
     );
   }
