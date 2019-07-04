@@ -24,6 +24,8 @@ class HomeViewModel extends BaseModel {
       print("title ${data.title}");
     }
 
+    notifyListeners();
+
 //    print("news size ${news.length}");
 
     setIsLoading(false);
@@ -31,5 +33,6 @@ class HomeViewModel extends BaseModel {
 
   void setCurrentPage(int nextPage) {
     _currentPage = nextPage;
+    notifyListeners();
   }
 }

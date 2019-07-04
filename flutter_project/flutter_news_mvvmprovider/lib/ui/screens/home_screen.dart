@@ -12,34 +12,30 @@ class _HomeScreenState extends State<HomeScreen> {
   ScrollController _scrollController = ScrollController();
   final _scrollThreshold = 200.0;
 
-  var _homeViewModel;
-
   @override
   void initState() {
     super.initState();
-    Future(() {
-      _homeViewModel = HomeViewModel(repo: Provider.of(context));
-    });
     _scrollController.addListener(_scrollListener);
   }
 
   void _scrollListener() {
-    Future(() {
-      double maxScroll = _scrollController.position.maxScrollExtent;
-      double currentScroll = _scrollController.position.pixels;
-      double delta = 200.0; // or something else..
-      if (maxScroll - currentScroll <= delta) {
-        // whatever you determine here
-        //.. load more
-        if (!_homeViewModel.isLoading) {
-          print("load more");
-          var current = _homeViewModel.getCurrentPage;
-          var nextPage = current + 1;
-          print("scroll nextpage $nextPage");
-          _homeViewModel.getNews(nextPage);
+    double maxScroll = _scrollController.position.maxScrollExtent;
+    double currentScroll = _scrollController.position.pixels;
+
+    if (currentScroll == maxScroll) {
+      print("Loadmore");
+
+      Future(() {
+        var homeViewModel = HomeViewModel(repo: Provider.of(context));
+        var current = homeViewModel.getCurrentPage;
+        var nextPage = current + 1;
+        print("scroll nextpage $nextPage");
+        if (!homeViewModel.isLoading) {
+          homeViewModel.getNews(nextPage);
+          homeViewModel.setCurrentPage(nextPage);
         }
-      }
-    });
+      });
+    }
   }
 
   @override

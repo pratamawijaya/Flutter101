@@ -11,7 +11,7 @@ class NewsRepository {
   NewsRepository({Api api}) : _api = api;
 
   Future<List<News>> getNews(int page) async {
-    const limit = 10;
+    const limit = 20;
     var offset = (page - 1) * limit;
 
     var path = _api.getNewsUrl(limit, offset);
