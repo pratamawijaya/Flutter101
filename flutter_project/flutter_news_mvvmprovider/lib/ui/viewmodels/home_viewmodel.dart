@@ -6,6 +6,8 @@ import 'package:flutter_news_mvvmprovider/ui/viewmodels/base_model.dart';
 class HomeViewModel extends BaseModel {
   NewsRepository _repo;
 
+  bool _isLoadmore = false;
+
   HomeViewModel({@required NewsRepository repo}) : _repo = repo;
 
   List<News> news = [];
@@ -13,7 +15,13 @@ class HomeViewModel extends BaseModel {
 
   Future getNews() async {
     print("get news page $_currentPage");
-    setIsLoading(true);
+    if (_currentPage >=1) {
+      _isLoadmore = true;
+    }
+    if (!_isLoadmore) {
+      setIsLoading(true);
+    }
+
     _currentPage = _currentPage + 1;
     var response = await _repo.getNews(_currentPage);
     news.addAll(response);
@@ -24,6 +32,7 @@ class HomeViewModel extends BaseModel {
 
     print("news size ${news.length}");
 
+    _isLoadmore = false;
     setIsLoading(false);
   }
 }

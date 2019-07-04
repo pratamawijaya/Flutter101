@@ -50,7 +50,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   controller: _scrollController,
                   itemCount: model.news.length,
                   itemBuilder: (context, index) {
-                    return NewsItem(model.news[index]);
+                    return (index == model.news.length)
+                        ? Container(
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: CircularProgressIndicator(),
+                            ),
+                          )
+                        : NewsItem(model.news[index]);
                   })),
     );
   }
