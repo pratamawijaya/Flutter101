@@ -6,33 +6,19 @@ import 'package:flutter_news_mvvmprovider/ui/viewmodels/base_model.dart';
 class HomeViewModel extends BaseModel {
   NewsRepository _repo;
 
-  int _currentPage = 1;
-
   HomeViewModel({@required NewsRepository repo}) : _repo = repo;
 
-  List<News> news = List();
-
-  int get getCurrentPage => _currentPage;
+  List<News> news = [];
 
   Future getNews(int page) async {
     print("get news page $page");
     setIsLoading(true);
-    var fetchedNews = await _repo.getNews(page);
-    news.addAll(fetchedNews);
+    news = await _repo.getNews(page);
 
-    for (var data in fetchedNews) {
+    for (var data in news) {
       print("title ${data.title}");
     }
 
-    notifyListeners();
-
-//    print("news size ${news.length}");
-
     setIsLoading(false);
-  }
-
-  void setCurrentPage(int nextPage) {
-    _currentPage = nextPage;
-    notifyListeners();
   }
 }
