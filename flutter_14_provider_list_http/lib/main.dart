@@ -37,8 +37,18 @@ class _HomePageState extends State<HomePage> {
         builder: (context, model, child) => Scaffold(
               appBar: AppBar(),
               body: Center(
-                child: Text("Hello"),
-              ),
+                  child: Column(
+                children: <Widget>[
+                  Text("Hello"),
+                  FlatButton(
+                    color: Colors.blue,
+                    child: Text("Press me"),
+                    onPressed: () {
+                      model.getListNews();
+                    },
+                  )
+                ],
+              )),
             ),
       ),
     );
