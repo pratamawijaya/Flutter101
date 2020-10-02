@@ -8,7 +8,7 @@ class QuoteRepositoryImpl extends QuoteRepository {
   QuoteRepositoryImpl({this.remoteDatasource});
 
   @override
-  Future<Quote> getQuoteOfTheDay() {
-    return remoteDatasource.getQuoteOfTheDay();
+  Future<Quote> getQuoteOfTheDay() async {
+    return await remoteDatasource.getQuoteOfTheDay();
   }
 }
