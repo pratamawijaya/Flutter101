@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_18_bloc_cubit/bloc/weather_bloc.dart';
 import 'package:flutter_18_bloc_cubit/cubit/weather_cubit.dart';
 import 'package:flutter_18_bloc_cubit/domain/entity/weather.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +20,29 @@ class _WeatherSearchState extends State<WeatherSearch> {
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 16),
         alignment: Alignment.center,
-        child: buildInitialInput(),
+        child: BlocConsumer<WeatherBloc, WeatherState>(
+          listener: (context, state) {
+            if (state is WeatherError) {
+              Scaffold.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.message),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            if (state is WeatherInitial) {
+              return buildInitialInput();
+            } else if (state is WeatherLoading) {
+              return buildLoading();
+            } else if (state is WeatherLoaded) {
+              return buildColumnWithData(state.weather);
+            } else {
+              // (state is WeatherError)
+              return buildInitialInput();
+            }
+          },
+        ),
       ),
     );
   }
@@ -39,12 +62,20 @@ class _WeatherSearchState extends State<WeatherSearch> {
   Widget buildColumnWithData(Weather weather) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Text(weather.cityName),
+      children: <Widget>[
         Text(
-          "${weather.temperatureCelcius} °C",
+          weather.cityName,
+          style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.w700,
+          ),
         ),
-        CityInput()
+        Text(
+          // Display the temperature with 1 decimal place
+          "${weather.temperatureCelsius.toStringAsFixed(1)} °C",
+          style: TextStyle(fontSize: 80),
+        ),
+        CityInput(),
       ],
     );
   }

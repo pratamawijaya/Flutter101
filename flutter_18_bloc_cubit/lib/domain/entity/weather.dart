@@ -1,6 +1,6 @@
 class Weather {
   final String cityName;
-  final String temperatureCelcius;
+  final double temperatureCelsius;
 
-  Weather({this.cityName, this.temperatureCelcius});
+  Weather({this.cityName, this.temperatureCelsius});
 }

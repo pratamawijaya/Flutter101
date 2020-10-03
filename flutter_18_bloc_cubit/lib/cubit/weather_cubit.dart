@@ -1,9 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_18_bloc_cubit/bloc/weather_bloc.dart';
 import 'package:flutter_18_bloc_cubit/data/repositories/weather_repository.dart';
-import 'package:flutter_18_bloc_cubit/domain/entity/weather.dart';
-import 'package:meta/meta.dart';
-
-part 'weather_state.dart';
+import 'package:flutter_18_bloc_cubit/exceptions/NetworkExceptions.dart';
 
 class WeatherCubit extends Cubit<WeatherState> {
   final WeatherRepository _weatherRepository;

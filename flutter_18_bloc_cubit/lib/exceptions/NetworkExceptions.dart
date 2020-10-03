@@ -1,0 +1,1 @@
+class NetworkExceptions implements Exception {}
