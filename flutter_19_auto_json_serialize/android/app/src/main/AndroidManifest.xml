@@ -2,6 +2,10 @@
     package="com.example.flutter_19_auto_json_serialize">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="flutter_19_auto_json_serialize">

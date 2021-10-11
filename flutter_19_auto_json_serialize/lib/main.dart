@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_19_auto_json_serialize/dio_client.dart';
 import 'package:flutter_19_auto_json_serialize/model/data.dart';
+import 'package:flutter_19_auto_json_serialize/model/movie.dart';
+import 'package:flutter_19_auto_json_serialize/model/now_playing_response.dart';
 
 import 'model/user.dart';
 
@@ -10,7 +12,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
 
   // This widget is the root of your application.
   @override
@@ -42,30 +43,31 @@ class _HomePageState extends State<HomePage> {
         title: const Text('User Info'),
       ),
       body: Center(
-        child: FutureBuilder<User?>(
-          future: _client.getUser(id: '2'),
+        child: FutureBuilder<NowPlayingResponse?>(
+          future: _client.getNowPlaying(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              User? userInfo = snapshot.data;
+              NowPlayingResponse? nowPlaying = snapshot.data;
 
-              if (userInfo != null) {
-                Data userData = userInfo.data;
+              if (nowPlaying != null) {
+                Movie movie = nowPlaying.results[0];
 
                 return Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Image.network(userData.avatar),
+                    Image.network('https://image.tmdb.org/t/p/w500/' +
+                        movie.backdropPath),
                     const SizedBox(
                       height: 8.0,
                     ),
                     Text(
-                      '${userInfo.data.firstName} ${userInfo.data.lastName}',
+                      '${movie.originTitle} ${movie.originLang}',
                       style: const TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
                     Text(
-                      userData.email,
+                      movie.backdropPath,
                       style: const TextStyle(fontSize: 16.0),
                     ),
                   ],
