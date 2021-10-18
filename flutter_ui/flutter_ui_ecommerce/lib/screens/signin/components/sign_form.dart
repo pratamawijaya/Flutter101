@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_ecommerce/screens/home/home_screen.dart';
 import 'package:flutter_ui_ecommerce/theme/constants.dart';
 import 'package:flutter_ui_ecommerce/utils/size_config.dart';
 import 'package:flutter_ui_ecommerce/widgets/custom_surfix_icon.dart';
@@ -52,6 +53,7 @@ class _SignInFormState extends State<SignInForm> {
           DefaultButton(
             text: "Continue",
             press: () {
+              Navigator.pushNamed(context, HomeScreen.routeName);
               // if(_formKey.currentState!.validate()){
               //
               // }
