@@ -10,6 +10,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(top: 16),
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).padding.top,
         left: 25,
@@ -20,32 +21,25 @@ class CustomAppBar extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: leftCallback != null ? () => leftCallback!() : null,
-            child: Container(
-              padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-              ),
-              child: Icon(
-                leftIcon,
-              ),
-            ),
+            child: _buildIcon(leftIcon),
           ),
           GestureDetector(
             onTap: () {},
-            child: Container(
-              padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-              ),
-              child: Icon(
-                rightIcon,
-              ),
-            ),
+            child: _buildIcon(rightIcon),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildIcon(IconData icon) {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: const BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.white,
+      ),
+      child: Icon(icon),
     );
   }
 }

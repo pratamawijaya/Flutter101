@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_food_delivery/widgets/custom_appbar.dart';
+import 'package:flutter_ui_food_delivery/widgets/restaurant_info.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           CustomAppBar(Icons.arrow_back, Icons.search_outlined),
+          RestaurantInfo()
         ],
       ),
     );
