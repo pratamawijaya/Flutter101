@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_ui_ecommerce/domain/product.dart';
+import 'package:flutter_ui_ecommerce/screens/detail/detail_product_screen.dart';
 import 'package:flutter_ui_ecommerce/theme/constants.dart';
 import 'package:flutter_ui_ecommerce/utils/size_config.dart';
 
@@ -22,7 +23,13 @@ class ProductCard extends StatelessWidget {
       child: SizedBox(
         width: getProportionateScreenWidth(width),
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              DetailProductScreen.routeName,
+              arguments: DetailProductArgument(product: product),
+            );
+          },
           child: Column(
             children: [
               AspectRatio(
