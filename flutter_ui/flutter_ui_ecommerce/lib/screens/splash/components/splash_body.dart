@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_ecommerce/screens/signin/signin_screen.dart';
 import 'package:flutter_ui_ecommerce/theme/constants.dart';
 import 'package:flutter_ui_ecommerce/utils/size_config.dart';
 import 'package:flutter_ui_ecommerce/widgets/default_button.dart';
@@ -55,7 +56,10 @@ class _SplashBodyState extends State<SplashBody> {
                     ),
                     DefaultButton(
                       text: "Continue",
-                      press: () {},
+                      press: () {
+                        print("pencet continue");
+                        Navigator.pushNamed(context, SignInScreen.routeName);
+                      },
                     )
                   ],
                 ),
