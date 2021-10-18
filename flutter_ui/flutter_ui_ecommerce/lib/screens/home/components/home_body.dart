@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_ecommerce/screens/home/components/categories.dart';
 import 'package:flutter_ui_ecommerce/screens/home/components/discount_banner.dart';
 import 'package:flutter_ui_ecommerce/screens/home/components/home_header.dart';
+import 'package:flutter_ui_ecommerce/screens/home/components/special_offers.dart';
 import 'package:flutter_ui_ecommerce/utils/size_config.dart';
 
 class HomeBody extends StatelessWidget {
@@ -18,6 +19,7 @@ class HomeBody extends StatelessWidget {
             SizedBox(height: getProportionateScreenWidth(10)),
             DiscountBanner(),
             Categories(),
+            SpecialOffers()
           ],
         ),
       ),
