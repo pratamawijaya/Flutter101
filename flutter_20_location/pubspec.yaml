@@ -12,8 +12,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_bloc: ^7.3.1
   flutter_localizations:
     sdk: flutter
+  geolocator: ^7.7.1
 
 dev_dependencies:
   flutter_test:
