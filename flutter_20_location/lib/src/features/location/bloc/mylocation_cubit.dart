@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:bloc/bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:meta/meta.dart';
@@ -24,6 +22,8 @@ class MylocationCubit extends Cubit<MylocationState> {
   final GeolocatorPlatform _geolocatorPlatform = GeolocatorPlatform.instance;
 
   Future<void> getLastKnownPosition() async {
+    print("get last known location");
+
     emit(MyLocationLoading());
     final position = await _geolocatorPlatform.getLastKnownPosition();
     if (position != null) {
@@ -36,6 +36,8 @@ class MylocationCubit extends Cubit<MylocationState> {
   }
 
   Future<void> getCurrentLocation() async {
+    print("get current location");
+
     emit(MyLocationLoading());
 
     final hasPermission = await _checkingPermission();
