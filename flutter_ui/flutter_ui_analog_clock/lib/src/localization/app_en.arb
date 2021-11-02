@@ -1,0 +1,6 @@
+{
+  "appTitle": "flutter_ui_analog_clock",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
