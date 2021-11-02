@@ -10,15 +10,17 @@ class ClockCubit extends Cubit<ClockState> {
   ClockCubit() : super(ClockInitial());
 
   TimeOfDay _timeOfDay = TimeOfDay.now();
+  DateTime _dateTime = DateTime.now();
 
   void updateTime() {
     Timer.periodic(Duration(seconds: 1), (timer) {
+      _dateTime = DateTime.now();
+
       if (_timeOfDay.minute != TimeOfDay.now().minute) {
         _timeOfDay = TimeOfDay.now();
-        print("time updated ${_timeOfDay.minute}");
-        emit(ClockUpdated(_timeOfDay));
+        emit(ClockUpdated(_timeOfDay, _dateTime));
       } else {
-        emit(ClockUpdated(_timeOfDay));
+        emit(ClockUpdated(_timeOfDay, _dateTime));
       }
     });
   }

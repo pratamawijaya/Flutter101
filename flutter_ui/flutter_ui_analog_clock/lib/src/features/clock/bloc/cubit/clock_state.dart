@@ -7,6 +7,13 @@ class ClockInitial extends ClockState {}
 
 class ClockUpdated extends ClockState {
   TimeOfDay timeOfDay;
+  DateTime dateTime;
 
-  ClockUpdated(this.timeOfDay);
+  ClockUpdated(this.timeOfDay, this.dateTime);
+}
+
+class TimeUpdated extends ClockState {
+  DateTime dateTime;
+
+  TimeUpdated(this.dateTime);
 }
