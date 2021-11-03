@@ -5,10 +5,7 @@ import 'package:flutter_ui_onboarding_login/src/features/onboarding/onboarding_s
 import 'package:flutter_ui_onboarding_login/src/routes.dart';
 import 'package:flutter_ui_onboarding_login/src/utils/theme.dart';
 
-import 'sample_feature/sample_item_details_view.dart';
-import 'sample_feature/sample_item_list_view.dart';
 import 'settings/settings_controller.dart';
-import 'settings/settings_view.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
