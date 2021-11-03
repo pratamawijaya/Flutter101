@@ -8,4 +8,4 @@
 ## Flutter UI Analog Clock
 | UI |
 | --- |
-| <img src="images/clock.mp4" width="250"> | 
+| <img src="images/clock_gif.mp4" width="250"> | 
