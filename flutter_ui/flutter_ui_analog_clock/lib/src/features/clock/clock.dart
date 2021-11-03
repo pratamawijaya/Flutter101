@@ -24,36 +24,35 @@ class _ClockState extends State<Clock> {
           padding: EdgeInsets.symmetric(
             horizontal: getProportionateScreenWidth(20),
           ),
-          child: AspectRatio(
-            aspectRatio: 1,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surface,
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 0),
-                    color: kShadowColor.withOpacity(0.14),
-                    blurRadius: 64,
-                  ),
-                ],
-              ),
-              child: BlocBuilder<ClockCubit, ClockState>(
-                builder: (context, state) {
-                  if (state is ClockUpdated) {
-                    DateTime currentTime = state.dateTime;
-                    return Transform.rotate(
-                      angle: -pi / 2,
-                      child: CustomPaint(
-                        painter: ClockPainter(context, currentTime),
-                      ),
-                    );
-                  } else {
-                    print("state clock unknown $state");
-                    return Container();
-                  }
-                },
-              ),
+          child: Container(
+            width: getProportionateScreenWidth(320),
+            height: getProportionateScreenHeight(320),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.surface,
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 0),
+                  color: kShadowColor.withOpacity(0.14),
+                  blurRadius: 64,
+                ),
+              ],
+            ),
+            child: BlocBuilder<ClockCubit, ClockState>(
+              builder: (context, state) {
+                if (state is ClockUpdated) {
+                  DateTime currentTime = state.dateTime;
+                  return Transform.rotate(
+                    angle: -pi / 2,
+                    child: CustomPaint(
+                      painter: ClockPainter(context, currentTime),
+                    ),
+                  );
+                } else {
+                  print("state clock unknown $state");
+                  return Container();
+                }
+              },
             ),
           ),
         ),
@@ -103,22 +102,6 @@ class ClockPainter extends CustomPainter {
     double centerY = size.height / 2;
     Offset center = Offset(centerX, centerY);
 
-    // Second Calculation
-
-    double secondX =
-        centerX + size.width * 0.4 * cos(dateTime.second * 6 * pi / 180);
-    double secondY =
-        centerY + size.width * 0.4 * sin(dateTime.second * 6 * pi / 180);
-
-    // Second Line
-    canvas.drawLine(
-        center,
-        Offset(secondX, secondY),
-        Paint()
-          ..color = Theme.of(context).primaryColor
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 3);
-
     // Minute Calculation
 
     double minX =
@@ -141,11 +124,11 @@ class ClockPainter extends CustomPainter {
     // dateTime.minute * 0.5 each minute we want to turn our hour line a little
     double hourX = centerX +
         size.width *
-            0.3 *
+            0.28 *
             cos((dateTime.hour * 30 + dateTime.minute * 0.5) * pi / 180);
     double hourY = centerY +
         size.width *
-            0.3 *
+            0.28 *
             sin((dateTime.hour * 30 + dateTime.minute * 0.5) * pi / 180);
 
     // hour Line
@@ -157,6 +140,22 @@ class ClockPainter extends CustomPainter {
         ..style = PaintingStyle.stroke
         ..strokeWidth = 10,
     );
+
+    // Second Calculation
+
+    double secondX =
+        centerX + size.width * 0.35 * cos(dateTime.second * 6 * pi / 180);
+    double secondY =
+        centerY + size.width * 0.35 * sin(dateTime.second * 6 * pi / 180);
+
+    // Second Line
+    canvas.drawLine(
+        center,
+        Offset(secondX, secondY),
+        Paint()
+          ..color = Theme.of(context).primaryColor
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 3);
 
     // center Dots
     Paint dotPainter = Paint()
