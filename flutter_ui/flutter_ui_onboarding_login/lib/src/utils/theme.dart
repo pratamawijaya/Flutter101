@@ -46,3 +46,23 @@ ThemeData myDarkThemeData(BuildContext context) {
 }
 
 AppBarTheme appBarTheme = AppBarTheme(color: Colors.transparent, elevation: 0);
+
+final ButtonStyle primaryButtonStyle = ButtonStyle(
+  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+  backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
+  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+  ),
+);
+
+final ButtonStyle primaryLightButtonStyle = ButtonStyle(
+  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+  backgroundColor: MaterialStateProperty.all<Color>(kPrimaryLightColor),
+  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+  ),
+);
