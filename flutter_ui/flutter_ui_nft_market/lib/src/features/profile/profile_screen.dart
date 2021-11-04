@@ -3,6 +3,7 @@ import 'package:flutter_ui_nft_market/src/domain/entity/profile.dart';
 import 'package:flutter_ui_nft_market/src/features/profile/person_info.dart';
 import 'package:flutter_ui_nft_market/src/features/profile/widget/custom_grid.dart';
 import 'package:flutter_ui_nft_market/src/features/profile/widget/tab_sliver_delegate.dart';
+import 'package:flutter_ui_nft_market/src/features/widgets/simple_icon.dart';
 import 'package:flutter_ui_nft_market/utils/size_config.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -64,22 +65,12 @@ class ProfileScreen extends StatelessWidget {
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.transparent,
-      leading: _buildIcon(Icons.arrow_back_ios_outlined),
-      actions: [
-        _buildIcon(Icons.more_vert_outlined),
-      ],
-    );
-  }
-
-  IconButton _buildIcon(IconData icon) {
-    return IconButton(
-      onPressed: () {},
-      splashRadius: 25,
-      icon: Icon(
-        icon,
-        color: Colors.black,
-        size: 20,
+      leading: SimpleIcon(
+        Icons.arrow_back_ios_outlined,
       ),
+      actions: [
+        SimpleIcon(Icons.more_vert_outlined),
+      ],
     );
   }
 }

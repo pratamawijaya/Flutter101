@@ -30,11 +30,14 @@ class CustomGrid extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                list[idx].imgUrl!,
-                fit: BoxFit.cover,
+            child: Hero(
+              tag: list[idx].imgUrl!,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  list[idx].imgUrl!,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
