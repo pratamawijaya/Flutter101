@@ -37,7 +37,7 @@ class ProfileScreen extends StatelessWidget {
                         .map((e) => Tab(
                               child: Text(
                                 e,
-                                style: TextStyle(fontSize: 18),
+                                style: Theme.of(context).textTheme.bodyText1,
                               ),
                             ))
                         .toList(),

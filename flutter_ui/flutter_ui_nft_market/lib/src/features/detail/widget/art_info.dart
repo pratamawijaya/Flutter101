@@ -17,20 +17,23 @@ class ArtInfo extends StatelessWidget {
         children: [
           Text(
             art.name!,
-            style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black),
+            style: Theme.of(context)
+                .textTheme
+                .headline4!
+                .copyWith(fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: 20,
           ),
           Row(
             children: [
-              _buildIconText(profile.imgUrl!, profile.name!, profile.twitter!),
+              _buildIconText(
+                  context, profile.imgUrl!, profile.name!, profile.twitter!),
               SizedBox(
                 width: 80,
               ),
-              _buildIconText(
-                  "assets/images/eth.png", "Current Bid", "${art.price}")
+              _buildIconText(context, "assets/images/eth.png", "Current Bid",
+                  "${art.price}")
             ],
           ),
         ],
@@ -38,7 +41,8 @@ class ArtInfo extends StatelessWidget {
     );
   }
 
-  Widget _buildIconText(String imgUrl, String title, String text) {
+  Widget _buildIconText(
+      BuildContext ctx, String imgUrl, String title, String text) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -62,14 +66,12 @@ class ArtInfo extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(
-                color: Colors.black,
-              ),
+              style: Theme.of(ctx).textTheme.bodyText1,
             ),
             SizedBox(
               height: 5,
             ),
-            Text(text),
+            Text(text, style: Theme.of(ctx).textTheme.bodyText2),
           ],
         )
       ],

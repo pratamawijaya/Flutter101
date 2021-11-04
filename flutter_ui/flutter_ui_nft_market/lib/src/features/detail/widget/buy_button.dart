@@ -19,8 +19,10 @@ class BuyButton extends StatelessWidget {
         ),
         child: Text(
           "Bid Now",
-          style: TextStyle(
-              color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          style: Theme.of(context)
+              .textTheme
+              .bodyText1!
+              .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );

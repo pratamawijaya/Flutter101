@@ -15,8 +15,8 @@ ThemeData myThemeData(BuildContext context) {
     iconTheme: IconThemeData(color: kBodyTextColorLight),
     primaryIconTheme: IconThemeData(color: kPrimaryIconLightColor),
     textTheme: GoogleFonts.latoTextTheme().copyWith(
-      bodyText1: TextStyle(color: kBodyTextColorLight),
-      bodyText2: TextStyle(color: kBodyTextColorLight, fontSize: 16),
+      bodyText1: TextStyle(color: kBodyTextColorLight, fontSize: 16),
+      bodyText2: TextStyle(color: kBodyTextColorLight, fontSize: 14),
       headline4: TextStyle(color: kTitleTextLightColor, fontSize: 32),
       headline1: TextStyle(color: kTitleTextLightColor, fontSize: 80),
     ),
@@ -37,8 +37,8 @@ ThemeData myDarkThemeData(BuildContext context) {
     iconTheme: IconThemeData(color: kBodyTextColorDark),
     primaryIconTheme: IconThemeData(color: kPrimaryIconDarkColor),
     textTheme: GoogleFonts.latoTextTheme().copyWith(
-      bodyText1: TextStyle(color: kBodyTextColorDark),
-      bodyText2: TextStyle(color: kBodyTextColorDark),
+      bodyText1: TextStyle(color: kBodyTextColorDark, fontSize: 16),
+      bodyText2: TextStyle(color: kBodyTextColorDark, fontSize: 14),
       headline4: TextStyle(color: kTitleTextDarkColor, fontSize: 32),
       headline1: TextStyle(color: kTitleTextDarkColor, fontSize: 80),
     ),
