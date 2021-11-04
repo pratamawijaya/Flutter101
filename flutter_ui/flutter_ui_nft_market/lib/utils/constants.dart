@@ -22,4 +22,6 @@ const kTitleTextDarkColor = Colors.white;
 
 const kShadowColor = Color(0xFF364564);
 
+// button
 const kButtonColor = Color(0xFFE7CBDD);
+const kButtonDarkColor = Color(0xFFE7CBDD);

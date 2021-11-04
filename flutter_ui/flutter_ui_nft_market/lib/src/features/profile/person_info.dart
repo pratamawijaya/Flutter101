@@ -22,26 +22,21 @@ class PersonInfo extends StatelessWidget {
           ),
           Text(
             profile.name ?? "",
-            style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+            style: Theme.of(context).textTheme.headline5,
           ),
           Text(
             profile.twitter!,
-            style: TextStyle(
-              color: Colors.blue,
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-            ),
+            style: Theme.of(context)
+                .textTheme
+                .subtitle2!
+                .copyWith(color: Colors.blue),
           ),
           SizedBox(
             height: 30,
           ),
           Text(
             profile.desc!,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.caption,
           ),
           SizedBox(
             height: 30,

@@ -17,8 +17,14 @@ ThemeData myThemeData(BuildContext context) {
     textTheme: GoogleFonts.latoTextTheme().copyWith(
       bodyText1: TextStyle(color: kBodyTextColorLight, fontSize: 16),
       bodyText2: TextStyle(color: kBodyTextColorLight, fontSize: 14),
-      headline4: TextStyle(color: kTitleTextLightColor, fontSize: 32),
       headline1: TextStyle(color: kTitleTextLightColor, fontSize: 80),
+      headline4: TextStyle(color: kTitleTextLightColor, fontSize: 32),
+      headline5: TextStyle(fontSize: 24, letterSpacing: 0),
+      headline6: TextStyle(fontSize: 20, letterSpacing: 0.15),
+      subtitle1: TextStyle(fontSize: 16, letterSpacing: 0.15),
+      subtitle2: TextStyle(fontSize: 14, letterSpacing: 0.1),
+      button: TextStyle(color: kButtonColor, fontSize: 14),
+      caption: TextStyle(fontSize: 12),
     ),
   );
 }
@@ -39,8 +45,14 @@ ThemeData myDarkThemeData(BuildContext context) {
     textTheme: GoogleFonts.latoTextTheme().copyWith(
       bodyText1: TextStyle(color: kBodyTextColorDark, fontSize: 16),
       bodyText2: TextStyle(color: kBodyTextColorDark, fontSize: 14),
-      headline4: TextStyle(color: kTitleTextDarkColor, fontSize: 32),
       headline1: TextStyle(color: kTitleTextDarkColor, fontSize: 80),
+      headline4: TextStyle(color: kTitleTextDarkColor, fontSize: 32),
+      headline5: TextStyle(fontSize: 24),
+      headline6: TextStyle(fontSize: 20),
+      subtitle1: TextStyle(fontSize: 16, letterSpacing: 0.15),
+      subtitle2: TextStyle(fontSize: 14, letterSpacing: 0.1),
+      button: TextStyle(color: kButtonDarkColor, fontSize: 14),
+      caption: TextStyle(fontSize: 12),
     ),
   );
 }
