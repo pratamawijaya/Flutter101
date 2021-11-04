@@ -16,7 +16,7 @@ ThemeData myThemeData(BuildContext context) {
     primaryIconTheme: IconThemeData(color: kPrimaryIconLightColor),
     textTheme: GoogleFonts.latoTextTheme().copyWith(
       bodyText1: TextStyle(color: kBodyTextColorLight),
-      bodyText2: TextStyle(color: kBodyTextColorLight),
+      bodyText2: TextStyle(color: kBodyTextColorLight, fontSize: 16),
       headline4: TextStyle(color: kTitleTextLightColor, fontSize: 32),
       headline1: TextStyle(color: kTitleTextLightColor, fontSize: 80),
     ),
