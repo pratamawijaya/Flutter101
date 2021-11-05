@@ -17,30 +17,77 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBackgroundLightColor,
-      body: Stack(
-        children: [
-          Row(
-            children: [
-              Expanded(
-                flex: 2,
-                child: Container(),
-              ),
-              Expanded(
-                child: Container(
-                  color: Colors.grey.withOpacity(0.1),
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(),
                 ),
-                flex: 1,
-              )
-            ],
+                Expanded(
+                  child: Container(
+                    color: Colors.grey.withOpacity(0.1),
+                  ),
+                  flex: 1,
+                )
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                HomeAppbar(),
+                SearchCard(),
+                TagList(),
+                JobList(),
+              ],
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.add,
+          size: 20,
+          color: Colors.white,
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        selectedItemColor: Theme.of(context).primaryColor,
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              size: 20,
+            ),
+            label: "Home",
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              HomeAppbar(),
-              SearchCard(),
-              TagList(),
-              JobList(),
-            ],
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.cases_outlined,
+              size: 20,
+            ),
+            label: "Case",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.chat_outlined,
+              size: 20,
+            ),
+            label: "Chat",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.account_circle_outlined,
+              size: 20,
+            ),
+            label: "Account",
           ),
         ],
       ),

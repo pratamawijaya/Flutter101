@@ -23,7 +23,7 @@ class Job {
       Job(
         company: "Google LLC",
         logoUrl: "assets/images/google_logo.png",
-        isMark: false,
+        isMark: true,
         title: "Principal Soft Engineer",
         location: "NY",
         time: "Full Time",
