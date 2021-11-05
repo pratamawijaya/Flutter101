@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_job_finder/src/features/home/widget/home_appbar.dart';
+import 'package:flutter_ui_job_finder/src/features/home/widget/search_card.dart';
 import 'package:flutter_ui_job_finder/src/utils/size_config.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -29,8 +30,10 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               HomeAppbar(),
+              SearchCard(),
             ],
           ),
         ],
