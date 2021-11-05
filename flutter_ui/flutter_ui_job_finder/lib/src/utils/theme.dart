@@ -18,6 +18,7 @@ ThemeData myThemeData(BuildContext context) {
       bodyText1: TextStyle(color: kBodyTextColorLight, fontSize: 16),
       bodyText2: TextStyle(color: kBodyTextColorLight, fontSize: 14),
       headline1: TextStyle(color: kTitleTextLightColor, fontSize: 80),
+      headline3: TextStyle(color: kTitleTextLightColor, fontSize: 48),
       headline4: TextStyle(color: kTitleTextLightColor, fontSize: 32),
       headline5: TextStyle(fontSize: 24, letterSpacing: 0),
       headline6: TextStyle(fontSize: 20, letterSpacing: 0.15),
