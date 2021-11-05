@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_job_finder/src/features/home/widget/home_appbar.dart';
+import 'package:flutter_ui_job_finder/src/features/home/widget/job_list.dart';
 import 'package:flutter_ui_job_finder/src/features/home/widget/search_card.dart';
+import 'package:flutter_ui_job_finder/src/features/home/widget/tag_list.dart';
+import 'package:flutter_ui_job_finder/src/utils/constants.dart';
 import 'package:flutter_ui_job_finder/src/utils/size_config.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,6 +16,7 @@ class HomeScreen extends StatelessWidget {
     SizeConfig().init(context);
 
     return Scaffold(
+      backgroundColor: kBackgroundLightColor,
       body: Stack(
         children: [
           Row(
@@ -34,6 +38,8 @@ class HomeScreen extends StatelessWidget {
             children: [
               HomeAppbar(),
               SearchCard(),
+              TagList(),
+              JobList(),
             ],
           ),
         ],
