@@ -1,3 +1,3 @@
 # Flutter Playground
 
-My Playground for learning flutter framework
+My Playground for learn flutter framework
