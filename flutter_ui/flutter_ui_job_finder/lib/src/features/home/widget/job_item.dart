@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_job_finder/src/domain/entity/job.dart';
-import 'package:flutter_ui_job_finder/src/features/home/widget/job_list.dart';
 import 'package:flutter_ui_job_finder/src/utils/constants.dart';
 import 'package:flutter_ui_job_finder/src/utils/size_config.dart';
 
 class JobItem extends StatelessWidget {
   final Job job;
-  JobItem(this.job, {Key? key, this.showTime = false}) : super(key: key);
+  const JobItem(this.job, {Key? key, this.showTime = false}) : super(key: key);
 
   final bool showTime;
   @override

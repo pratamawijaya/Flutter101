@@ -60,7 +60,7 @@ class HomeScreen extends StatelessWidget {
         showUnselectedLabels: false,
         selectedItemColor: Theme.of(context).primaryColor,
         type: BottomNavigationBarType.fixed,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,

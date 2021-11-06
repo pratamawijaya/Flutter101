@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class Job {
   String company;
   String logoUrl;
