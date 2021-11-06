@@ -49,7 +49,8 @@ class JobItem extends StatelessWidget {
                   )
                 ],
               ),
-              Icon(job.isMark ? Icons.bookmark : Icons.bookmark_add_outlined),
+              Icon(
+                  job.isMark ? Icons.bookmark : Icons.bookmark_outline_rounded),
             ],
           ),
           SizedBox(
