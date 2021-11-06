@@ -15,7 +15,9 @@ class JobItem extends StatelessWidget {
       width: getProportionateScreenWidth(270),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30), color: Colors.white),
+        borderRadius: BorderRadius.circular(30),
+        color: Colors.white,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
