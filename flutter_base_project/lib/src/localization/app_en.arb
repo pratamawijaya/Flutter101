@@ -1,0 +1,6 @@
+{
+  "appTitle": "flutter_base_project",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
