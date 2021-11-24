@@ -1,0 +1,6 @@
+{
+  "appTitle": "flutter_elearning_course",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
