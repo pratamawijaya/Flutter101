@@ -15,7 +15,12 @@
 | -- |
 | <img src="images/flutter_ui_nft_market.gif" width="250">|
 
-## Flutter UI Job Sarch
+## Flutter UI Job Search
 | Home | Bottomsheet
 | -- | -- |
 | <img src="images/flutter_ui_jobsearch_home.png" width="250"> | <img src="images/flutter_ui_jobsearch_bottomsheet.png" width="250"> |
+
+## Flutter UI Stock Price with Chart
+| Home |
+| --- |
+| <img src="images/flutter_ui_chart.png" width="250"> |
