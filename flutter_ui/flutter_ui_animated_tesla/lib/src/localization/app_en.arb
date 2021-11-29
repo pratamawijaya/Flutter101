@@ -1,0 +1,6 @@
+{
+  "appTitle": "flutter_ui_animated_tesla",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
