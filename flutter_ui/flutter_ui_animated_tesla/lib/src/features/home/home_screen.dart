@@ -56,14 +56,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Positioned(
-                      top: constraint.maxWidth * 0.20,
+                      top: constraint.maxHeight * 0.18,
                       child: DoorLock(
                         isLock: controller.isMesinCapLock,
                         press: controller.updateMesinCapLock,
                       ),
                     ),
                     Positioned(
-                      bottom: constraint.maxWidth * 0.25,
+                      bottom: constraint.maxHeight * 0.18,
                       child: DoorLock(
                         isLock: controller.isBagasiLock,
                         press: controller.updateBagasiLock,
