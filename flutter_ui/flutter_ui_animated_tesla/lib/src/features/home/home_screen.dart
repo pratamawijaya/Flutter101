@@ -19,8 +19,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var lockedDoorIcon = SvgPicture.asset("assets/icons/door_lock.svg");
-    var unlockedDoorIcon = SvgPicture.asset("assets/icons/door_unlock.svg");
+    var lockedDoorIcon = SvgPicture.asset(
+      "assets/icons/door_lock.svg",
+      key: Key("locked"),
+    );
+    var unlockedDoorIcon = SvgPicture.asset(
+      "assets/icons/door_unlock.svg",
+      key: Key("unlocked"),
+    );
 
     return AnimatedBuilder(
         animation: HomeController(),
@@ -42,10 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       BlocBuilder<DoorlockCubit, DoorlockState>(
                         builder: (context, state) {
-                          bool _rightDoorState = false;
-                          if (state is RightDoorState) {
-                            _rightDoorState = state.isLocked;
-                          }
+                          bool _rightDoorState =
+                              context.read<DoorlockCubit>().rightDoorIsLocked;
                           return Positioned(
                             right: constraint.maxWidth * 0.05,
                             child: GestureDetector(
@@ -64,10 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       BlocBuilder<DoorlockCubit, DoorlockState>(
                         builder: (context, state) {
-                          bool _leftDoorState = false;
-                          if (state is LeftDoorState) {
-                            _leftDoorState = state.isLocked;
-                          }
+                          bool _leftDoorState =
+                              context.read<DoorlockCubit>().leftDoorIsLocked;
                           return Positioned(
                             left: constraint.maxWidth * 0.05,
                             child: GestureDetector(
@@ -77,10 +79,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .updateLeftDoorState();
                               },
                               child: _leftDoorState
-                                  ? SvgPicture.asset(
-                                      "assets/icons/door_lock.svg")
-                                  : SvgPicture.asset(
-                                      "assets/icons/door_unlock.svg"),
+                                  ? lockedDoorIcon
+                                  : unlockedDoorIcon,
                             ),
                           );
                         },
