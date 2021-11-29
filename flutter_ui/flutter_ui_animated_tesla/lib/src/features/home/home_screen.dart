@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_ui_animated_tesla/src/features/home/home_controller.dart';
+import 'package:flutter_ui_animated_tesla/src/utils/constants.dart';
+import 'package:flutter_ui_animated_tesla/src/widgets/door_lock.dart';
 import 'package:provider/provider.dart';
+
+import 'home_controller.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -18,6 +21,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Consumer<HomeController>(
       builder: (context, controller, child) {
         return Scaffold(
+          bottomNavigationBar: TeslaBottomNavigationBar(
+            onTap: (value) {
+              controller.updateSelectedIndex(value);
+            },
+            selectedTab: controller.bottomNavSelectedIndex,
+          ),
           body: SafeArea(
             child: LayoutBuilder(
               builder: (context, constraint) {
@@ -46,6 +55,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         press: controller.updateLeftDoorLock,
                       ),
                     ),
+                    Positioned(
+                      top: constraint.maxWidth * 0.20,
+                      child: DoorLock(
+                        isLock: controller.isMesinCapLock,
+                        press: controller.updateMesinCapLock,
+                      ),
+                    ),
+                    Positioned(
+                      bottom: constraint.maxWidth * 0.25,
+                      child: DoorLock(
+                        isLock: controller.isBagasiLock,
+                        press: controller.updateBagasiLock,
+                      ),
+                    ),
                   ],
                 );
               },
@@ -57,34 +80,39 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class DoorLock extends StatelessWidget {
-  DoorLock({Key? key, required this.press, required this.isLock})
-      : super(key: key);
+List<String> navIconSrc = [
+  "assets/icons/Lock.svg",
+  "assets/icons/Charge.svg",
+  "assets/icons/Temp.svg",
+  "assets/icons/Tyre.svg"
+];
 
-  final VoidCallback press;
-  final bool isLock;
+class TeslaBottomNavigationBar extends StatelessWidget {
+  const TeslaBottomNavigationBar({
+    Key? key,
+    required this.selectedTab,
+    required this.onTap,
+  }) : super(key: key);
 
-  var lockedDoorIcon = SvgPicture.asset(
-    "assets/icons/door_lock.svg",
-    key: Key("locked"),
-  );
-  var unlockedDoorIcon = SvgPicture.asset(
-    "assets/icons/door_unlock.svg",
-    key: Key("unlocked"),
-  );
+  final int selectedTab;
+  final ValueChanged<int> onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press,
-      child: AnimatedSwitcher(
-        duration: Duration(milliseconds: 300),
-        switchInCurve: Curves.easeInOutBack,
-        transitionBuilder: (child, animation) => ScaleTransition(
-          scale: animation,
-          child: child,
+    return BottomNavigationBar(
+      onTap: onTap,
+      currentIndex: selectedTab,
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Colors.black,
+      items: List.generate(
+        navIconSrc.length,
+        (index) => BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            navIconSrc[index],
+            color: index == selectedTab ? kPrimaryColor : Colors.white54,
+          ),
+          label: "",
         ),
-        child: isLock ? lockedDoorIcon : unlockedDoorIcon,
       ),
     );
   }
