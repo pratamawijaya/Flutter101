@@ -24,3 +24,8 @@
 | Home |
 | --- |
 | <img src="images/flutter_ui_chart.png" width="250"> |
+
+## Flutter Animated Tesla
+| Home | Anim |
+| --- | --- |
+| <img src="images/animated_tesla_record.gif" width="250"> | <img src="images/flutter_animated_tesla_recording.gif" width="250"> |  
