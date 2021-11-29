@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_ui_animated_tesla/src/utils/constants.dart';
 
 class DoorLock extends StatelessWidget {
   DoorLock({Key? key, required this.press, required this.isLock})
@@ -22,7 +23,7 @@ class DoorLock extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: AnimatedSwitcher(
-        duration: Duration(milliseconds: 300),
+        duration: defaultAnimDuration,
         switchInCurve: Curves.easeInOutBack,
         transitionBuilder: (child, animation) => ScaleTransition(
           scale: animation,

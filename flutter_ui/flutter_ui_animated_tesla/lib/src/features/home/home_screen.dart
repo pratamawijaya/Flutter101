@@ -41,32 +41,62 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: double.infinity,
                       ),
                     ),
-                    Positioned(
-                      right: constraint.maxWidth * 0.05,
-                      child: DoorLock(
-                        isLock: controller.isRightDoorLock,
-                        press: controller.updateRightDoorLock,
+                    // right door
+                    AnimatedPositioned(
+                      duration: defaultAnimDuration,
+                      right: controller.bottomNavSelectedIndex == 0
+                          ? constraint.maxWidth * 0.05
+                          : constraint.maxWidth / 2,
+                      child: AnimatedOpacity(
+                        duration: defaultAnimDuration,
+                        opacity: controller.bottomNavSelectedIndex == 0 ? 1 : 0,
+                        child: DoorLock(
+                          isLock: controller.isRightDoorLock,
+                          press: controller.updateRightDoorLock,
+                        ),
                       ),
                     ),
-                    Positioned(
-                      left: constraint.maxWidth * 0.05,
-                      child: DoorLock(
-                        isLock: controller.isLeftDoorLock,
-                        press: controller.updateLeftDoorLock,
+                    // left door
+                    AnimatedPositioned(
+                      duration: defaultAnimDuration,
+                      left: controller.bottomNavSelectedIndex == 0
+                          ? constraint.maxWidth * 0.05
+                          : constraint.maxWidth / 2,
+                      child: AnimatedOpacity(
+                        opacity: controller.bottomNavSelectedIndex == 0 ? 1 : 0,
+                        duration: defaultAnimDuration,
+                        child: DoorLock(
+                          isLock: controller.isLeftDoorLock,
+                          press: controller.updateLeftDoorLock,
+                        ),
                       ),
                     ),
-                    Positioned(
-                      top: constraint.maxHeight * 0.18,
-                      child: DoorLock(
-                        isLock: controller.isMesinCapLock,
-                        press: controller.updateMesinCapLock,
+                    AnimatedPositioned(
+                      duration: defaultAnimDuration,
+                      top: controller.bottomNavSelectedIndex == 0
+                          ? constraint.maxHeight * 0.18
+                          : constraint.maxHeight / 2,
+                      child: AnimatedOpacity(
+                        opacity: controller.bottomNavSelectedIndex == 0 ? 1 : 0,
+                        duration: defaultAnimDuration,
+                        child: DoorLock(
+                          isLock: controller.isMesinCapLock,
+                          press: controller.updateMesinCapLock,
+                        ),
                       ),
                     ),
-                    Positioned(
-                      bottom: constraint.maxHeight * 0.18,
-                      child: DoorLock(
-                        isLock: controller.isBagasiLock,
-                        press: controller.updateBagasiLock,
+                    AnimatedPositioned(
+                      duration: defaultAnimDuration,
+                      bottom: controller.bottomNavSelectedIndex == 0
+                          ? constraint.maxHeight * 0.18
+                          : constraint.maxHeight / 2,
+                      child: AnimatedOpacity(
+                        opacity: controller.bottomNavSelectedIndex == 0 ? 1 : 0,
+                        duration: defaultAnimDuration,
+                        child: DoorLock(
+                          isLock: controller.isBagasiLock,
+                          press: controller.updateBagasiLock,
+                        ),
                       ),
                     ),
                   ],
