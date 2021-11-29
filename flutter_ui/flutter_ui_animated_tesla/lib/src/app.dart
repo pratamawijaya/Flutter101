@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_ui_animated_tesla/src/features/home/home_controller.dart';
 import 'package:flutter_ui_animated_tesla/src/features/home/home_screen.dart';
+import 'package:provider/provider.dart';
 
-import 'features/home/cubit/doorlock_cubit.dart';
 import 'settings/settings_controller.dart';
 import 'routes.dart';
 import 'utils/theme.dart';
@@ -27,8 +27,8 @@ class MyApp extends StatelessWidget {
     return AnimatedBuilder(
       animation: settingsController,
       builder: (BuildContext context, Widget? child) {
-        return BlocProvider(
-          create: (context) => DoorlockCubit(),
+        return ChangeNotifierProvider(
+          create: (context) => HomeController(),
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             // Providing a restorationScopeId allows the Navigator built by the
