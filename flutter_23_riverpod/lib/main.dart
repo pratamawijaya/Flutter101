@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_23_riverpod/screens/clock_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Provider is great for accessing dependencies and objects that don’t change.
@@ -30,19 +31,34 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Demo Riverpod"),
         ),
-        body: Consumer(
-          builder: (_, WidgetRef ref, __) {
-            final counter = ref.watch(counterStateProvider);
-            return ElevatedButton(
-              onPressed: () {
-                ref.read(counterStateProvider.notifier).state++;
-              },
-              child: Text("Value $counter"),
-            );
-          },
-        ),
+        body: ClockScreen(),
       ),
     );
   }
 }
 
+class DemoScreen extends StatelessWidget {
+  const DemoScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer(
+      builder: ((context, ref, child) {
+        final counter = ref.watch(counterStateProvider);
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: ElevatedButton(
+                  onPressed: () {
+                    ref.read(counterStateProvider.notifier).state++;
+                  },
+                  child: Text("value $counter")),
+            ),
+          ],
+        );
+      }),
+    );
+  }
+}
