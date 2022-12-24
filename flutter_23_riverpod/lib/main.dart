@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_23_riverpod/screens/authentications/auth_screen.dart';
 import 'package:flutter_23_riverpod/screens/clock_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Demo Riverpod"),
         ),
-        body: ClockScreen(),
+        body: AuthScreen(),
       ),
     );
   }
