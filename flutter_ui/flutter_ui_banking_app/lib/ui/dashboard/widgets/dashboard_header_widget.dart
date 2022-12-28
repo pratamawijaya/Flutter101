@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_banking_app/configs/colors.dart';
+import 'package:flutter_ui_banking_app/utils/size_config.dart';
 
 class DashboardHeaderWidget extends StatelessWidget {
   const DashboardHeaderWidget({super.key});
@@ -32,12 +33,10 @@ class DashboardHeaderWidget extends StatelessWidget {
     );
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: getProportionateScreenHeight(200),
       decoration: BoxDecoration(
         color: kPrimaryColor,
         borderRadius: BorderRadius.circular(15.0),

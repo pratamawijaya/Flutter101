@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_banking_app/configs/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-AppBarTheme appBarTheme =
-    const AppBarTheme(color: Colors.green, elevation: 0);
+AppBarTheme appBarTheme = const AppBarTheme(color: kPrimaryColor, elevation: 0);
 
 ThemeData lightThemeData(BuildContext context) {
   return ThemeData(
@@ -17,6 +15,7 @@ ThemeData lightThemeData(BuildContext context) {
     backgroundColor: kBackgroundDarkColor,
     iconTheme: IconThemeData(color: kBodyTextColorDark),
     primaryIconTheme: IconThemeData(color: kPrimaryIconDarkColor),
+    appBarTheme: appBarTheme,
     textTheme: GoogleFonts.robotoTextTheme().copyWith(
       headline1: TextStyle(
           color: kBodyTextColorLight,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_ui_banking_app/configs/colors.dart';
 import 'package:flutter_ui_banking_app/ui/dashboard/dashboard_screen.dart';
+import 'package:flutter_ui_banking_app/utils/size_config.dart';
 
 final indexProvider = StateProvider<int>((ref) => 0);
 
@@ -19,6 +20,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
     return Scaffold(
       body: Center(
         child: Consumer(

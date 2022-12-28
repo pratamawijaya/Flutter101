@@ -1,10 +1,12 @@
 import 'package:flutter_ui_banking_app/ui/home/home_screen.dart';
+import 'package:flutter_ui_banking_app/ui/promo/promo_screen.dart';
 import 'package:flutter_ui_banking_app/ui/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 
 enum Routes {
   splashScreen("/"),
   homeScreen("/home"),
+  promoScreen("promo"),
   ;
 
   const Routes(this.path);
@@ -30,6 +32,14 @@ class AppRouter {
         builder: (context, state) {
           return HomeScreen();
         },
+        routes: <GoRoute>[
+          GoRoute(
+              path: Routes.promoScreen.path,
+              name: Routes.promoScreen.name,
+              builder: ((context, state) {
+                return PromoScreen();
+              }))
+        ],
       ),
     ],
   );
