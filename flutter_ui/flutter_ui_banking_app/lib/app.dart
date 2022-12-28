@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_ui_banking_app/configs/themes.dart';
 import 'package:flutter_ui_banking_app/routes.dart';
 
