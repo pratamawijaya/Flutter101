@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
           children: [
             Text("Splash Screen"),
             ElevatedButton(
-              onPressed: () => context.go(Routes.homeScreen.path),
+              onPressed: () => context.push(Routes.homeScreen.path),
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),

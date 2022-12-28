@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_ui_banking_app/configs/colors.dart';
+import 'package:flutter_ui_banking_app/ui/dashboard/dashboard_screen.dart';
 
-var indexProvider = StateProvider<int>((ref) => 0);
+final indexProvider = StateProvider<int>((ref) => 0);
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,32 +19,36 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(
-      builder: ((context, ref, child) {
-        return Scaffold(
-          body: Center(
-            child: IndexedStack(
+    return Scaffold(
+      body: Center(
+        child: Consumer(
+          builder: ((context, ref, child) {
+            return IndexedStack(
               index: ref.watch(indexProvider),
+              // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Text("Home"),
+                DashboardScreen(),
                 Text("Transactions"),
                 Text("Reports"),
                 Text("Settings"),
               ],
-            ),
-          ),
-          floatingActionButton: FloatingActionButton(
-            foregroundColor: Colors.white,
-            backgroundColor: kPrimaryColor,
-            onPressed: () {},
-            child: Icon(Icons.qr_code_scanner),
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          bottomNavigationBar: BottomAppBar(
-            child: Container(
-              margin: EdgeInsets.only(left: 12.0, right: 12.0),
-              child: Row(
+            );
+          }),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        foregroundColor: Colors.white,
+        backgroundColor: kPrimaryColor,
+        onPressed: () {},
+        child: Icon(Icons.qr_code_scanner),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          margin: EdgeInsets.only(left: 12.0, right: 12.0),
+          child: Consumer(
+            builder: ((context, ref, child) {
+              return Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -79,11 +84,11 @@ class HomeScreen extends StatelessWidget {
                     color: updateColorButton(ref, 3),
                   ),
                 ],
-              ),
-            ),
+              );
+            }),
           ),
-        );
-      }),
+        ),
+      ),
     );
   }
 }
