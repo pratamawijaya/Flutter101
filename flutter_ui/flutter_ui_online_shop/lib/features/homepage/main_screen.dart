@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_ui_online_shop/config/size_config.dart';
 import 'package:flutter_ui_online_shop/features/homepage/beranda_screen.dart';
 import 'package:flutter_ui_online_shop/features/cart/cart_screen.dart';
+import 'package:flutter_ui_online_shop/features/homepage/beranda_screen_v2.dart';
 import 'package:flutter_ui_online_shop/features/homepage/controller/mainscreen_provider.dart';
 import 'package:flutter_ui_online_shop/features/inbox/inbox_screen.dart';
 import 'package:flutter_ui_online_shop/features/profile/profile_screen.dart';
@@ -12,7 +14,7 @@ class MainScreen extends ConsumerWidget {
   MainScreen({super.key});
 
   List<Widget> pageList = const [
-    BerandaScreen(),
+    BerandaScreenV2(),
     InboxScreen(),
     CartScreen(),
     ProfileScreen(),
@@ -20,8 +22,8 @@ class MainScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: const Color(0xFFE2E2E2),
       body: pageList[ref.watch(mainScreenProviderProvider)],
       bottomNavigationBar: SafeArea(
         child: Container(

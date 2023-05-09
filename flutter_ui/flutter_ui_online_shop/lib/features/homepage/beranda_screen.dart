@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_online_shop/config/size_config.dart';
 import 'package:flutter_ui_online_shop/features/homepage/widget/homepage_card.dart';
-import 'package:flutter_ui_online_shop/widgets/circle_tab_indicator.dart';
 
 class BerandaScreen extends StatefulWidget {
   const BerandaScreen({super.key});
@@ -13,6 +13,7 @@ class _BerandaScreenState extends State<BerandaScreen>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     TabController _tabController = TabController(length: 3, vsync: this);
 
     return SafeArea(
@@ -22,7 +23,7 @@ class _BerandaScreenState extends State<BerandaScreen>
             Stack(
               children: [
                 Container(
-                  height: 300,
+                  height: getProportionateScreenHeight(300),
                   decoration: const BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.only(
@@ -34,13 +35,13 @@ class _BerandaScreenState extends State<BerandaScreen>
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 10, top: 20),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 20),
                       child: Text(
                         "Athletic Shoes Collections",
-                        style: TextStyle(
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
                             color: Colors.white,
-                            fontSize: 50,
+                            fontSize: 42,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -53,10 +54,10 @@ class _BerandaScreenState extends State<BerandaScreen>
                       child: TabBar(
                         // indicator:
                         indicatorColor: Colors.transparent,
-                        labelPadding: const EdgeInsets.only(left: 0, right: 20),
+                        labelPadding: const EdgeInsets.only(left: 0, right: 10),
                         labelColor: Colors.white,
                         labelStyle: const TextStyle(
-                            fontSize: 28, fontWeight: FontWeight.bold),
+                            fontSize: 18, fontWeight: FontWeight.bold),
                         isScrollable: true,
                         controller: _tabController,
                         tabs: const [
@@ -73,11 +74,11 @@ class _BerandaScreenState extends State<BerandaScreen>
                       ),
                     ),
 
-                    //create tabview
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
-                      child: SizedBox(
+                      child: Container(
                         height: 400,
+                        color: Colors.amber,
                         child: TabBarView(
                           controller: _tabController,
                           children: const [

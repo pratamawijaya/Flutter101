@@ -35,18 +35,18 @@ class CardProduct extends StatelessWidget {
               "NMD R1",
               style: Theme.of(context)
                   .textTheme
-                  .headlineMedium!
-                  .copyWith(fontWeight: FontWeight.bold),
+                  .titleLarge!
+                  .copyWith(fontWeight: FontWeight.bold, fontSize: 40),
             ),
             Text(
               "Men's Running",
               style: Theme.of(context)
                   .textTheme
                   .labelLarge!
-                  .copyWith(color: Colors.grey),
+                  .copyWith(color: Colors.grey, fontSize: 22),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             Row(
               children: [
@@ -54,8 +54,8 @@ class CardProduct extends StatelessWidget {
                   "\$180.00",
                   style: Theme.of(context)
                       .textTheme
-                      .headlineSmall!
-                      .copyWith(fontWeight: FontWeight.bold),
+                      .labelLarge!
+                      .copyWith(fontWeight: FontWeight.bold, fontSize: 32),
                 ),
               ],
             )
