@@ -10,15 +10,14 @@ import 'package:go_router/go_router.dart';
 part 'routes.g.dart';
 
 @TypedGoRoute<HomeRoute>(
-  path: "/",
+  path: "/home",
+  name: "home",
   routes: [
     TypedGoRoute<ProfileRoute>(path: ProfileRoute.path),
     TypedGoRoute<HistoryRoute>(path: HistoryRoute.path),
   ],
 )
 class HomeRoute extends GoRouteData {
-  static const path = '/home';
-
   const HomeRoute();
 
   @override
@@ -27,10 +26,8 @@ class HomeRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<LoginRoute>(path: LoginRoute.path)
+@TypedGoRoute<LoginRoute>(path: "/login", name: "login")
 class LoginRoute extends GoRouteData {
-  static const path = '/login';
-
   const LoginRoute();
 
   @override
@@ -39,10 +36,8 @@ class LoginRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<SplashRoute>(path: SplashRoute.path)
+@TypedGoRoute<SplashRoute>(path: "/splash", name: "splash")
 class SplashRoute extends GoRouteData {
-  static const path = '/splash';
-
   const SplashRoute();
 
   @override

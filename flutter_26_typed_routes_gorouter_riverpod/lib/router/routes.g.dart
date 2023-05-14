@@ -13,7 +13,8 @@ List<RouteBase> get $appRoutes => [
     ];
 
 RouteBase get $homeRoute => GoRouteData.$route(
-      path: '/',
+      path: '/home',
+      name: 'home',
       factory: $HomeRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
@@ -31,7 +32,7 @@ extension $HomeRouteExtension on HomeRoute {
   static HomeRoute _fromState(GoRouterState state) => const HomeRoute();
 
   String get location => GoRouteData.$location(
-        '/',
+        '/home',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -46,7 +47,7 @@ extension $ProfileRouteExtension on ProfileRoute {
   static ProfileRoute _fromState(GoRouterState state) => const ProfileRoute();
 
   String get location => GoRouteData.$location(
-        '/profile',
+        '/home/profile',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -61,7 +62,7 @@ extension $HistoryRouteExtension on HistoryRoute {
   static HistoryRoute _fromState(GoRouterState state) => const HistoryRoute();
 
   String get location => GoRouteData.$location(
-        '/history',
+        '/home/history',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -74,6 +75,7 @@ extension $HistoryRouteExtension on HistoryRoute {
 
 RouteBase get $loginRoute => GoRouteData.$route(
       path: '/login',
+      name: 'login',
       factory: $LoginRouteExtension._fromState,
     );
 
@@ -94,6 +96,7 @@ extension $LoginRouteExtension on LoginRoute {
 
 RouteBase get $splashRoute => GoRouteData.$route(
       path: '/splash',
+      name: 'splash',
       factory: $SplashRouteExtension._fromState,
     );
 

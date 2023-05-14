@@ -29,14 +29,15 @@ class MyApp extends HookConsumerWidget {
         ],
         navigatorKey: key.value,
         refreshListenable: notifier,
-        debugLogDiagnostics: true,
-        //  initialLocation: $splashRoute, // todo: still cant find .path
+        debugLogDiagnostics: true, // todo: still cant find .path
         routes: notifier.routes,
         redirect: notifier.redirect,
+        initialLocation: "/splash",
       ),
     );
     return MaterialApp.router(
-      routerConfig: router,
+      routeInformationParser: router.routeInformationParser,
+      routerDelegate: router.routerDelegate,
       title: "hook_riverpod + go_router",
       theme: ThemeData(
         primaryColor: Colors.amber[800],

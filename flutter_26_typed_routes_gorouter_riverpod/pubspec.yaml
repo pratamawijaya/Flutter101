@@ -33,7 +33,7 @@ dependencies:
     sdk: flutter
   flutter_riverpod: ^2.3.6
   flutter_hooks: ^0.18.6
-  go_router: ^6.2.0
+  go_router: ^7.0.0
   hooks_riverpod: ^2.3.6
   logger: ^1.3.0
   riverpod_annotation: ^2.1.1
