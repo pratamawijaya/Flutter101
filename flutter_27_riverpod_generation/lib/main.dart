@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_27_riverpod_generation/screens/home_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:logger/logger.dart';
 
 part 'main.g.dart';
 
@@ -9,6 +10,8 @@ part 'main.g.dart';
 String helloWorld(HelloWorldRef ref) {
   return 'Hello';
 }
+
+var logger = Logger(printer: PrettyPrinter());
 
 void main() {
   runApp(
