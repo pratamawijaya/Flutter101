@@ -50,7 +50,7 @@ class HomePage extends ConsumerWidget {
                                 "error mendapatkan lokasi ${stacktrace.toString()}");
                             return const Text("Gagal mendapatkan lokasi");
                           },
-                          loading: () => Text("Mencari Lokasi . . .")),
+                          loading: () => const Text("Mencari Lokasi . . .")),
                     ],
                   )
                 ],
