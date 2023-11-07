@@ -14,9 +14,6 @@ class WelcomePage extends ConsumerWidget {
       body: Column(
         children: [
           const BackgroundImage(),
-          const SizedBox(
-            height: 20,
-          ),
           Expanded(
             child: Stack(
               clipBehavior: Clip.none,
@@ -37,7 +34,7 @@ class WelcomePage extends ConsumerWidget {
                         height: size.width * 0.22,
                       ),
                       SizedBox(
-                        width: size.width * 0.5,
+                        width: size.width * 0.7,
                         child: Text(
                           "We Bring The Best Car for your Needs",
                           style: Theme.of(context)
@@ -60,7 +57,8 @@ class WelcomePage extends ConsumerWidget {
                               .textTheme
                               .titleMedium!
                               .copyWith(
-                                  color: Colors.white,
+                                  color:
+                                      const Color.fromARGB(255, 135, 133, 133),
                                   letterSpacing: 1.2,
                                   height: 1.3),
                         ),
@@ -70,7 +68,7 @@ class WelcomePage extends ConsumerWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          ref.read(routerProvider).goNamed('home');
+                          ref.read(routerProvider).goNamed('login');
                         },
                         style: ElevatedButton.styleFrom(
                           fixedSize: Size(size.width, size.height * 0.08),
@@ -83,8 +81,10 @@ class WelcomePage extends ConsumerWidget {
                           "Getting Started",
                           style: Theme.of(context)
                               .textTheme
-                              .titleLarge!
-                              .copyWith(color: Colors.black),
+                              .titleMedium!
+                              .copyWith(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
                         ),
                       )
                     ],

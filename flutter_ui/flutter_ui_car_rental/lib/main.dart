@@ -3,6 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_ui_car_rental/presentation/misc/colors.dart';
 import 'package:flutter_ui_car_rental/presentation/providers/router/router_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:logger/logger.dart';
+
+var logger = Logger(printer: PrettyPrinter());
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));

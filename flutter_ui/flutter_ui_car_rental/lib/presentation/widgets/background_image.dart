@@ -10,7 +10,7 @@ class BackgroundImage extends StatelessWidget {
       height: size.height * 0.5,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/bg_image_gradation.jgeg'),
+          image: AssetImage('assets/bg_image_gradation.jpeg'),
           fit: BoxFit.cover,
         ),
       ),
