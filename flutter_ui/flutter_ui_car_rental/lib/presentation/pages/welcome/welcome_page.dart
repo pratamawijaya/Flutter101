@@ -68,7 +68,7 @@ class WelcomePage extends ConsumerWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          ref.read(routerProvider).goNamed('login');
+                          ref.read(routerProvider).goNamed('home');
                         },
                         style: ElevatedButton.styleFrom(
                           fixedSize: Size(size.width, size.height * 0.08),
