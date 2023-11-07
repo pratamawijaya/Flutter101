@@ -36,6 +36,6 @@
 
 ## [Flutter Car Rental]()
 
-| Welcome Page                                              |
-| --------------------------------------------------------- |
-| <img src="images/flutter_ui_car_rental_1.png" width="250> |
+| Welcome Page                                               |
+| ---------------------------------------------------------- |
+| <img src="images/flutter_ui_car_rental_1.png" width="250"> |
