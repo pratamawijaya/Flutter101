@@ -45,7 +45,7 @@ class HomePage extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Your Location",
+                        "Lokasimu",
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium!
@@ -55,7 +55,7 @@ class HomePage extends ConsumerWidget {
                           data: (data) {
                             logger.i("data -> ${data?.toString()}");
                             return Text(
-                                "${data?.locality}, ${data?.subLocality}");
+                                "${data?.subLocality}, ${data?.administrativeArea}");
                           },
                           error: (error, stacktrace) {
                             logger.e(
@@ -112,8 +112,8 @@ class HomePage extends ConsumerWidget {
             Expanded(
               child: Container(
                 width: size.width,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 148, 148, 148),
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 227, 227, 227),
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(30),
                   ),
@@ -132,7 +132,7 @@ class HomePage extends ConsumerWidget {
                                 .textTheme
                                 .titleMedium!
                                 .copyWith(
-                                    color: Colors.white,
+                                    color: const Color(0xFF000000),
                                     fontWeight: FontWeight.bold),
                           ),
                           Text(
@@ -140,7 +140,7 @@ class HomePage extends ConsumerWidget {
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
-                                .copyWith(color: saffron),
+                                .copyWith(color: const Color(0xFF000000)),
                           )
                         ],
                       ),
@@ -159,7 +159,7 @@ class HomePage extends ConsumerWidget {
                                   width: (size.width - 16 * 4) / 3,
                                   decoration: BoxDecoration(
                                     color: const Color.fromARGB(
-                                        255, 108, 108, 108),
+                                        255, 195, 195, 195),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Image.asset(
